@@ -15,6 +15,7 @@ D: deduction
 
 ### Axioms
 ![image](bending.png)
+
 K=(Rn-R)/T [ANSI]  
 σ=2×S+2×F-D   
 PZL = α×Rn

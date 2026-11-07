@@ -1,6 +1,6 @@
 ## About
 Library is replacement of standard bending development formula for Solid Edge. In material properties You can assign emet.pzl and make flat patterns compatibile with Your bending tables without changing bending radii in original 3D models. Works even if 3D-model radii is wrong and if 3D-model thickness is wrong. Formulas are based on compensated PZL-zone length and fake K-factors.
-Library is made and widely tested in polish "emet" company which made sheet metal equipment. 
+Library is made and widely tested in polish "emet" company which makes sheet metal equipment. 
 
 ## Installation
 Library must be registered in Windows. Here is command:

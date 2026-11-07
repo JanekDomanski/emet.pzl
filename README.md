@@ -37,7 +37,7 @@ K=(PZL/α-R)/T
 
 ### PZL Compensation
 - Reducing 3D Model PZL to 0
-- Calculating PZL that compensates radius diference (PZLc)
+- Calculating PZL that compensates radius difference (PZLc)
 
 Dmopzl: Deduction from 3D model with PZL reduced to 0  
 Dmopzl=2×Sm  

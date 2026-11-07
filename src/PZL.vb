@@ -176,50 +176,6 @@ Private Function readExcelToDictionary(strFileName) As Dictionary(Of String, Dic
 	Return result
 End Function
 
-Private Sub Log(text as String)
-'Only for debugging
-	Using writer As New System.IO.StreamWriter("c:\Temp\fk.log", True)
-			writer.WriteLine(Format(Now, "yyyy-mm-dd hh:mm:ss") & "|" & text)
-	End Using
-End Sub
-
-
-Private Function DumpObject(obj As Object, Optional indent As Integer = 0) As String
-'Only for debugging, AI generated
-	Dim sb As New System.Text.StringBuilder()
-	Dim pad As String = New String(" "c, indent * 2)
-	If obj Is Nothing Then
-		sb.AppendLine(pad & "<null>")
-		Return sb.ToString()
-	End If
-
-	If TypeOf obj Is System.Collections.IDictionary Then
-		Dim d = CType(obj, System.Collections.IDictionary)
-		For Each k As Object In d.Keys
-			Dim v = d(k)
-			If TypeOf v Is System.Collections.IDictionary OrElse (TypeOf v Is System.Collections.IEnumerable AndAlso Not TypeOf v Is String) Then
-				sb.AppendLine(pad & If(k Is Nothing, "<null>", k.ToString()) & ":")
-				sb.Append(DumpObject(v, indent + 1))
-			Else
-				sb.AppendLine(pad & String.Format("{0} = {1}", If(k Is Nothing, "<null>", k.ToString()), If(v Is Nothing, "<null>", v.ToString())))
-			End If
-		Next
-		Return sb.ToString()
-	ElseIf TypeOf obj Is System.Collections.IEnumerable AndAlso Not TypeOf obj Is String Then
-		For Each item As Object In CType(obj, System.Collections.IEnumerable)
-			If TypeOf item Is System.Collections.IDictionary OrElse (TypeOf item Is System.Collections.IEnumerable AndAlso Not TypeOf item Is String) Then
-				sb.Append(DumpObject(item, indent + 1))
-			Else
-				sb.AppendLine(pad & If(item Is Nothing, "<null>", item.ToString()))
-			End If
-		Next
-		Return sb.ToString()
-	Else
-		sb.AppendLine(pad & obj.ToString())
-		Return sb.ToString()
-	End If
-End Function
-
 Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Double, ByRef Angle As Double, ByRef Material As String, ByRef NF As Double) As Double Implements _emetTable.PZL
 	'The function arguments and units are defined as follows:
 	'Feature - The SE-Sheet Metal feature that is being created/updated or flattened.
@@ -288,7 +244,7 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	'hem (pl: zaklepka)
 	if(Math.Abs(Math.PI - Angle) < 0.01) Then isHem = True
 	if(isHem = True and Rm < 0.001) Then
-		PZL=Math.PI*0.55*Tt 'To be explained it in the readme.md file. K-factor for the hems to be read from emet.xlsx
+		PZL=Math.PI*0.55*Tt 'To be explained in the readme.md file. K-factor for the hems to be read from emet.xlsx
 	End If
 
 	Console.ForegroundColor = ConsoleColor.Red

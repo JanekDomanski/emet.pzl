@@ -285,11 +285,10 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	Console.WriteLine(T("bend_number") & ": " & CurrentBendIterator)
 	PZL = 2*Math.Tan(Angle/2)*(Rm-Rt+Tm-Tt)+Angle*(Rt+Tt*Kt)
 
-	'zaklepka
+	'hem (pl: zaklepka)
 	if(Math.Abs(Math.PI - Angle) < 0.01) Then isHem = True
 	if(isHem = True and Rm < 0.001) Then
-		Kt = 0.55
-		PZL = (Rm + Tm * Kt) * Angle
+		PZL=Math.PI*0.55*Tt 'To be explained it in the readme.md file. K-factor for the hems to be read from emet.xlsx
 	End If
 
 	Console.ForegroundColor = ConsoleColor.Red

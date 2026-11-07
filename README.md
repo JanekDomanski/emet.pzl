@@ -18,13 +18,13 @@ D: deduction
 
 K=(Rn-R)/T [ANSI]  
 σ=2×S+2×F-D   
-PZL = α×Rn
+PZL=α×Rn
 
 ### Simple conclusions
 F=0 (hypothetical simplification) ⇒ σ=2×S-D=PZL    
 D=2×S-PZL  
 S=Re×Tan(α/2), Re=R+T ⇒ S=(R+T)×Tan(α/2)      
-Rn = R+T, PZL=α×Rn ⇒ PZL=α×(R+T*K)
+Rn=R+T×K, PZL=α×Rn ⇒ PZL=α×(R+T*K)
 ### PZL Compensation
 - Reducing 3D Model PZL to 0
 - Calculating PZL that compensates radii diference
@@ -36,20 +36,25 @@ PZL: PZL that compensates radii diference
 PZL = Dmopzl - Dt  
 PZL = 2×Sm-(2×St-PZLt)  
 PZL = 2×Sm-2×St+PZLt  
-PZL = 2×(Rm+Tm)×Tan(α/2)-2×(R+Tt)×Tan(α/2)+α×(Rt+Tt×K)
+PZL = 2×(Rm+Tm)×Tan(α/2)-2×(Rt+Tt)×Tan(α/2)+α×(Rt+Tt×K)
+
 
 **PZL = 2×Tan(α/2)×(Rm-Rt)+α×(Rt+Tt×K)**
 
 ### Fake K-factor
 If we put that factor to default bend developing formula we've got good flat pattern even if 3D Model thickness or 3D model radius differs from bending tables. K-factor results from compensated PZL which can be 0. So fake K-factor can be outside reasonable range (0,1>
-
 K=(Rn-R)/T  
 Rn-R=K×T  
 Rn=R+K×T  
+
 PZL=Rn×α=(R+K×T)×α=α×R+α×K×T  
-PZL-α×R=α×K×T | /α  
-(PZL-α×R)/α×T=K  
-K=(PZL-α×R)/α×Tm [PZL: compensated]
+PZL-α×R=α×K×T | /(α×T)  
+(PZL-α×R)/(α×T)=K  
+K=(PZL-α×R)/(α×T)  
+K=(PZL/α-R)/T
+
+**Kf=(PZLc/α-Rm)/Tm**  
+[Kf: K-fake, PZLc: PZL-compensated]
 
 ## Disclaimer
 These scripts and tools are provided "AS IS", without any warranty of any kind. Use them at your own risk.

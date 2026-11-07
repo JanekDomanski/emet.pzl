@@ -27,16 +27,15 @@ S=Re×Tan(α/2), Re=R+T ⇒ S=(R+T)×Tan(α/2)
 Rn=R+T×K, PZL=α×Rn ⇒ PZL=α×(R+T*K)
 ### PZL Compensation
 - Reducing 3D Model PZL to 0
-- Calculating PZL that compensates radii diference
+- Calculating PZL that compensates radii diference (PZLc)
 
 Dmopzl: Deduction from 3D model with PZL reduced to 0  
 Dmopzl = 2×Sm  
 Dt = 2×St-PZLt  
-PZL: PZL that compensates radii diference  
-PZL = Dmopzl - Dt  
-PZL = 2×Sm-(2×St-PZLt)  
-PZL = 2×Sm-2×St+PZLt  
-PZL = 2×(Rm+Tm)×Tan(α/2)-2×(Rt+Tt)×Tan(α/2)+α×(Rt+Tt×K)
+PZLc = Dmopzl - Dt  
+PZLc = 2×Sm-(2×St-PZLt)  
+PZLc = 2×Sm-2×St+PZLt  
+PZLc = 2×(Rm+Tm)×Tan(α/2)-2×(Rt+Tt)×Tan(α/2)+α×(Rt+Tt×K)
 
 
 **PZL = 2×Tan(α/2)×(Rm-Rt)+α×(Rt+Tt×K)**
@@ -54,7 +53,7 @@ K=(PZL-α×R)/(α×T)
 K=(PZL/α-R)/T
 
 **Kf=(PZLc/α-Rm)/Tm**  
-[Kf: K-fake, PZLc: PZL-compensated]
+[Kf: K-fake]
 
 ## Disclaimer
 These scripts and tools are provided "AS IS", without any warranty of any kind. Use them at your own risk.

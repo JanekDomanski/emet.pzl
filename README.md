@@ -1,6 +1,6 @@
 ## About
-Library is replacement of standard bending development formula for Solid Edge. In material properties You can assign emet.pzl and make flat patterns compatibile with Your bending tables without changing bending radii in original 3D models. Works even if 3D-model radii is wrong and if 3D-model thickness is wrong. Formulas are based on compensated PZL-zone length and fake K-factors.
-Library is made and widely tested in polish "emet" company which makes sheet metal equipment. 
+Library is a replacement of standard bending development formula for Solid Edge. In material properties You can assign emet.pzl and make flat patterns compatible with Your bending tables without changing bending radii in original 3D models. Works even if 3D-model radii are wrong and if 3D-model thickness is wrong. Formulas are based on compensated PZL-zone length and fake K-factors.
+Library is developed and extensively tested at the Polish "emet" company which makes sheet metal equipment. 
 
 ## Installation
 Library must be registered in Windows. Here is command:
@@ -8,7 +8,7 @@ Library must be registered in Windows. Here is command:
 Library requires bending table (emet.xlsx) in the same directory.
 
 ## Maths
-### Vars meaning
+### Variable definitions
 D: deduction  
 …m: variable from 3D model  
 …t: variable from bending tables  
@@ -21,7 +21,7 @@ K=(Rn-R)/T [ANSI]
 PZL=α×Rn  
 S=Re×Tan(α/2)
 
-### Simple conclusions
+### Derived equations
 F=0 (hypothetical simplification) ⇒ σ=2×S-D=PZL    
 D=2×S-PZL  
 
@@ -37,7 +37,7 @@ K=(PZL/α-R)/T
 
 ### PZL Compensation
 - Reducing 3D Model PZL to 0
-- Calculating PZL that compensates radii diference (PZLc)
+- Calculating PZL that compensates radius diference (PZLc)
 
 Dmopzl: Deduction from 3D model with PZL reduced to 0  
 Dmopzl=2×Sm  
@@ -50,7 +50,7 @@ PZLc=2×(Rm+Tm)×Tan(α/2)-2×(Rt+Tt)×Tan(α/2)+α×(Rt+Tt×K)
 **PZLc=2×Tan(α/2)(Rm-Rt+Tm-Tt)+α×(Rt+Tt×K)**
 
 ### Fake K-factor
-If we put that factor to default bend developing formula we've got good flat pattern even if 3D Model thickness or 3D model radius differs from bending tables. K-factor results from compensated PZL which can be 0. So fake K-factor can be outside reasonable range (0,1>  
+When this factor is used in the standard bend-development formula we've got good flat pattern even if 3D Model thickness or 3D model radius differs from bending tables. K-factor results from compensated PZL which can be 0. So fake K-factor can be outside reasonable range (0,1>  
 
 K=(PZL/α-R)/T  
 **Kfake=(PZLc/α-Rm)/Tm**  

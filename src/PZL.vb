@@ -283,7 +283,7 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	CurrentBendIterator += 1
 	Console.WriteLine("")
 	Console.WriteLine(T("bend_number") & ": " & CurrentBendIterator)
-	PZL = 2*Math.Tan(Angle/2)*(Rm-Rt)+Angle*(Rt+Tt*Kt)
+	PZL = 2*Math.Tan(Angle/2)*(Rm-Rt+Tm-Tt)+Angle*(Rt+Tt*Kt)
 
 	'zaklepka
 	if(Math.Abs(Math.PI - Angle) < 0.01) Then isHem = True

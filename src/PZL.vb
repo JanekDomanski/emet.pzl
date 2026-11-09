@@ -248,6 +248,7 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	'hem (pl: zaklepka)
 	if(Math.Abs(Math.PI - Angle) < 0.001) Then
 		isHem = True
+		Angle = Math.PI
 		Rt = hemGapDefault/2
 		Rm = Rt
 		Tm = Tt

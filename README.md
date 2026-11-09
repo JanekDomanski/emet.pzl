@@ -11,7 +11,7 @@ Library requires bending table (emet.xlsx) in the same directory.
 ### Variable definitions
 D: deduction  
 …m: variable from 3D model  
-…t: variable from bending tables  
+…t: variable from bending tables
 
 ### Axioms
 ![image](resources/bending.png)
@@ -37,7 +37,7 @@ K=(PZL/α-R)/T
 ### Hems
 Closed flat hems are calculated using these simplifications:  
 α=Π *[bending angle for hems: always 180° = Π radians]*  
-Rm=Rt=0.004/2 *[0.004 mm: default hem gap in SolidEdge]*  
+Rm=Rt=G/2 *[G: default hem gap, in SolidEdge = 0.004 mm]*  
 Tm=Tt *[always choose material thickness from table, omit 3D model thickness]*  
 
 ### PZL Compensation

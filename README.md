@@ -59,7 +59,7 @@ K=(PZL/α-R)/T
 Hems are calculated using these simplifications:
 α=Π *[bending angle for hems: always 180° = Π radians]*  
 Rm=Rt=0.004/2 *[0.004 mm: default hem gap in SolidEdge]*  
-Tm=Tt *[always choose material thickness from table, omit model thickness]*  
+Tm=Tt *[always choose material thickness from table, omit 3D model thickness]*  
 
 ## Disclaimer
 These scripts and tools are provided "AS IS", without any warranty of any kind. Use them at your own risk.

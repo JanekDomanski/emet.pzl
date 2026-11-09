@@ -60,8 +60,13 @@ When this factor is used in the standard bend-development formula we've got good
 
 K=(PZL/α-R)/T  
 **Kfake=(PZLc/α-Rm)/Tm**  
+If we use previously calculated PZLc, then we've got PZL-c independent formula:  
+Kfake=(2×Tan(α/2)/α×(Rm-Rt+Tm-Tt)+Tt×K-Rm+Rt)/Tm
+
 ### Fake K-factor range
 PZL=0 ⇒ Kfake=-Rm/Tm *[minimal value]*
+
+
 
 ## Disclaimer
 These scripts and tools are provided "AS IS", without any warranty of any kind. Use them at your own risk.

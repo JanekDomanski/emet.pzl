@@ -60,6 +60,8 @@ When this factor is used in the standard bend-development formula we've got good
 
 K=(PZL/α-R)/T  
 **Kfake=(PZLc/α-Rm)/Tm**  
+### Fake K-factor range
+PZL=0 ⇒ K=-R/T
 
 ## Disclaimer
 These scripts and tools are provided "AS IS", without any warranty of any kind. Use them at your own risk.

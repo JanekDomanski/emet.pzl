@@ -62,11 +62,7 @@ K=(PZL/α-R)/T
 Kfake=(PZLc/α-Rm)/Tm  
 If we use previously calculated PZLc, then we've got PZLc-independent formula:  
 **Kfake=(2×Tan(α/2)/α×(Rm-Rt+Tm-Tt)+Tt×Kt-Rm+Rt)/Tm**
-
-### Fake K-factor range
-PZL=0 ⇒ Kfake>-Rm/Tm
-
-
+PZL>0 ⇒ Kfake>-Rm/Tm
 
 ## Disclaimer
 These scripts and tools are provided "AS IS", without any warranty of any kind. Use them at your own risk.

@@ -1,7 +1,6 @@
 Option Strict Off
 Option Explicit On
 Imports System.Runtime.InteropServices
-Imports System.IO
 Imports Microsoft.Win32
 Imports System.Collections.Generic
 
@@ -77,16 +76,6 @@ End Function
 				Private Shared Config as Dictionary(Of String, Dictionary(Of String, Object))
 				Private Shared isIntialized As Boolean = False
 				
-				'<System.Runtime.InteropServices.ProgId("PZL_NET.PZL")> Public Class PZL
-				'****************************************************************
-				'*			PZL OLE Server Class Example for SE-Sheet Metal				 *
-				'*																															*
-				'* This example uses the *** Standard Bend Equation to					*
-				'* determine the length of the bend in the flat.								*
-				'*																															*
-				'* ***BEQ.PZL																									 *
-				'****************************************************************
-
 				Public Sub New()
 						'NOTE: In this example there are no default values to set.
 						CurrentBendIterator = 0
@@ -209,14 +198,11 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	Dim Rt as Double
 	Dim Kt as Double
 	Dim Kh as Double
-	Dim desiredDeduction as Double
-	Dim currentDeduction as Double
 	Dim msg as string
 	Dim featureStatus as string
 	Dim table as string
 	Dim isHem as Boolean
-	Dim Kfake as Double
-	
+		
 	isHem = False
 
 	
@@ -248,7 +234,6 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	'hem (pl: zaklepka)
 	if(Math.Abs(Math.PI - Angle) < 0.001) Then
 		isHem = True
-		Angle = Math.PI
 		Rt = hemGapDefault/2
 		Rm = Rt
 		Tm = Tt
@@ -256,7 +241,6 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	End If
 
 	PZL = 2*Math.Tan(Angle/2)*(Rm-Rt+Tm-Tt)+Angle*(Rt+Tt*Kt)
-	Kfake = (PZL/angle - Rm)/Tm
 
 	Console.ForegroundColor = ConsoleColor.Red
 	if(PZL < 0) Then
@@ -288,7 +272,7 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	End If
 
 	Console.ResetColor()
-	Console.WriteLine(T("BendTable") & ": " & table & ", " & T("Thickness") & ": " & Math.Round(Tm*1000,3) & " mm" & ", " & T("r") & ": " & Math.Round(Rm*1000,3) & " mm, " & T("angle") & ": " & Math.Round(Angle*180/Math.PI,3) & "°, PZL: " & Math.Round(PZL*1000,3) & ", K="& Math.Round(Kfake,3))
+	Console.WriteLine(T("BendTable") & ": " & table & ", " & T("Thickness") & ": " & Math.Round(Tm*1000,3) & " mm" & ", " & T("r") & ": " & Math.Round(Rm*1000,3) & " mm, " & T("angle") & ": " & Math.Round(Angle*180/Math.PI,3) & "°, PZL: " & Math.Round(PZL*1000,3))
 
 	featureStatus = ""
 	msg = ""

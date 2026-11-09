@@ -201,12 +201,14 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	End If
 		
 	Dim thicknessTollerance as Double
-	Dim maxHem as Double
+	Dim hemGapMax as Double
+	Dim hemGapDefault as Double
 	Dim radiusTollerance as Double
 	
 	Dim Tt as Double
 	Dim Rt as Double
 	Dim Kt as Double
+	Dim Kh as Double
 	Dim desiredDeduction as Double
 	Dim currentDeduction as Double
 	Dim msg as string
@@ -216,6 +218,7 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	Dim Kfake as Double
 	
 	isHem = False
+
 	
 	table = Config("config")("default bend table")("value")
 	For Each key In Config("materials").Keys
@@ -225,27 +228,34 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 		End If
 	Next
 
+	CurrentBendIterator += 1
+	Console.WriteLine("")
+	Console.WriteLine(T("bend_number") & ": " & CurrentBendIterator)
+
 	thicknessTollerance = Config("config")("thickness tollerance")("value")/1000
-	maxHem = Config("config")("max hem")("value")/1000
+	hemGapMax = Config("config")("hem gap max")("value")/1000
+	hemGapDefault = Config("config")("hem gap default")("value")/1000
 	radiusTollerance = Config("config")("radius tollerance")("value")/1000
 
 	For Each key In Config(table).Keys
 		Tt = key/1000
 		Rt = Config(table)(key)("R")/1000
 		Kt = Config(table)(key)("K")
+		Kh = Config(table)(key)("Kh")
 		If (Math.Abs(Tt - Tm) < thicknessTollerance) Then Exit For
 	Next
 
-	CurrentBendIterator += 1
-	Console.WriteLine("")
-	Console.WriteLine(T("bend_number") & ": " & CurrentBendIterator)
-	PZL = 2*Math.Tan(Angle/2)*(Rm-Rt+Tm-Tt)+Angle*(Rt+Tt*Kt)
-
 	'hem (pl: zaklepka)
-	if(Math.Abs(Math.PI - Angle) < 0.01) Then isHem = True
-	if(isHem = True and Rm < 0.001) Then
-		PZL=Math.PI*0.55*Tt 'To be explained in the readme.md file. K-factor for the hems to be read from emet.xlsx
+	if(Math.Abs(Math.PI - Angle) < 0.001) Then
+		isHem = True
+		Rt = hemGapDefault/2
+		Rm = Rt
+		Tm = Tt
+		Kt = Kh
 	End If
+
+	PZL = 2*Math.Tan(Angle/2)*(Rm-Rt+Tm-Tt)+Angle*(Rt+Tt*Kt)
+	Kfake = (PZL/angle - Rm)/Tm
 
 	Console.ForegroundColor = ConsoleColor.Red
 	if(PZL < 0) Then
@@ -263,7 +273,7 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 		MsgBox(msg)
 	End If
 
-	if(isHem = True and Rm >= maxHem) Then
+	if(isHem = True and Rm >= hemGapMax) Then
 		PZL = -1
 		Errors += 1
 		msg = T("big_hem_error")
@@ -271,22 +281,19 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 		MsgBox(msg)
 	End If
 
-
-	Kfake = (PZL/angle - Rm)/Tm
-
 	if(isHem = False and (Rt-Rm) > radiusTollerance) Then
 		Warnings += 1
 		Console.WriteLine(T("greater_radius_warning"))
 	End If
+
 	Console.ResetColor()
-	Console.WriteLine(T("BendTable") & ": " & table & ", " & T("Tm") & ": " & Math.Round(Tm*1000,3) & " mm" & ", " & T("r") & ": " & Math.Round(Rm*1000,3) & " mm, " & T("angle") & ": " & Math.Round(Angle*180/Math.PI,3) & "°, PZL: " & Math.Round(PZL*1000,3) & ", K="& Math.Round(Kfake,3))
+	Console.WriteLine(T("BendTable") & ": " & table & ", " & T("Thickness") & ": " & Math.Round(Tm*1000,3) & " mm" & ", " & T("r") & ": " & Math.Round(Rm*1000,3) & " mm, " & T("angle") & ": " & Math.Round(Angle*180/Math.PI,3) & "°, PZL: " & Math.Round(PZL*1000,3) & ", K="& Math.Round(Kfake,3))
 
 	featureStatus = ""
 	msg = ""
 	
 	if(Feature.Name = "FORCE") Then
-		PZL = 0
-		Errors = 0
+		if(PZL < 0) Then PZL = 0
 	End If
 	
 	If Errors = 0 Then
@@ -298,12 +305,12 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	Else
 		featureStatus = T("status_error_feature_suffix")
 	End If
-	
-	
+
 	if(Feature.Name <> "FORCE") Then
 		Feature.Name = "emet.pzl " & featureStatus
 	End If
-		
+
+	
 Exit Function
 End Function
 
@@ -335,5 +342,3 @@ End Function
 		End Class
 
 End Namespace
-
-

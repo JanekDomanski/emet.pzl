@@ -34,6 +34,11 @@ PZL-α×R=α×K×T | /(α×T)
 K=(PZL-α×R)/(α×T)  
 K=(PZL/α-R)/T
 
+### Hems
+Hems are calculated using these simplifications:  
+α=Π *[bending angle for hems: always 180° = Π radians]*  
+Rm=Rt=0.004/2 *[0.004 mm: default hem gap in SolidEdge]*  
+Tm=Tt *[always choose material thickness from table, omit 3D model thickness]*  
 
 ### PZL Compensation
 - Reducing 3D Model PZL to 0
@@ -54,12 +59,6 @@ When this factor is used in the standard bend-development formula we've got good
 
 K=(PZL/α-R)/T  
 **Kfake=(PZLc/α-Rm)/Tm**  
-
-### Hems
-Hems are calculated using these simplifications:  
-α=Π *[bending angle for hems: always 180° = Π radians]*  
-Rm=Rt=0.004/2 *[0.004 mm: default hem gap in SolidEdge]*  
-Tm=Tt *[always choose material thickness from table, omit 3D model thickness]*  
 
 ## Disclaimer
 These scripts and tools are provided "AS IS", without any warranty of any kind. Use them at your own risk.

@@ -55,6 +55,12 @@ When this factor is used in the standard bend-development formula we've got good
 K=(PZL/α-R)/T  
 **Kfake=(PZLc/α-Rm)/Tm**  
 
+### Hems
+Hems are calculated using these simplifications:
+α=Π [bending angle for hems: always 180° = Π radians]
+Rm=Rt=0.004/2 [0.004 mm: default hem gap in SolidEdge]
+Tm=Tt [always choose material thickness from table, omit model thickness]
+
 ## Disclaimer
 These scripts and tools are provided "AS IS", without any warranty of any kind. Use them at your own risk.
 Always create backups of your files before running any script or tool. The author shall not be held liable for any data loss, file corruption, damage, or other consequences resulting from the use or misuse of the provided software.

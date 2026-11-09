@@ -16,7 +16,7 @@ D: deduction
 ### Axioms
 ![image](resources/bending.png)
 
-K=(Rn-R)/T [ANSI]  
+K=(Rn-R)/T *[ANSI]*  
 σ=2×S+2×F-D  
 PZL=α×Rn  
 S=Re×Tan(α/2)
@@ -57,9 +57,9 @@ K=(PZL/α-R)/T
 
 ### Hems
 Hems are calculated using these simplifications:
-α=Π [bending angle for hems: always 180° = Π radians]
-Rm=Rt=0.004/2 [0.004 mm: default hem gap in SolidEdge]
-Tm=Tt [always choose material thickness from table, omit model thickness]
+α=Π *[bending angle for hems: always 180° = Π radians]*  
+Rm=Rt=0.004/2 *[0.004 mm: default hem gap in SolidEdge]*  
+Tm=Tt *[always choose material thickness from table, omit model thickness]*  
 
 ## Disclaimer
 These scripts and tools are provided "AS IS", without any warranty of any kind. Use them at your own risk.

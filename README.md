@@ -59,9 +59,9 @@ PZLc=2×(Rm+Tm)×Tan(α/2)-2×(Rt+Tt)×Tan(α/2)+α×(Rt+Tt×K)
 When this factor is used in the standard bend-development formula we've got good flat pattern even if 3D Model thickness or 3D model radii differs from bending tables. K-factor results from compensated PZL which can be 0. So fake K-factor can be outside reasonable range (0,1>  
 
 K=(PZL/α-R)/T  
-**Kfake=(PZLc/α-Rm)/Tm**  
+Kfake=(PZLc/α-Rm)/Tm  
 If we use previously calculated PZLc, then we've got PZL-c independent formula:  
-Kfake=(2×Tan(α/2)/α×(Rm-Rt+Tm-Tt)+Tt×K-Rm+Rt)/Tm
+**Kfake=(2×Tan(α/2)/α×(Rm-Rt+Tm-Tt)+Tt×K-Rm+Rt)/Tm**
 
 ### Fake K-factor range
 PZL=0 ⇒ Kfake=-Rm/Tm *[minimal value]*

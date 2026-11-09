@@ -37,8 +37,9 @@ K=(PZL/α-R)/T
 ### Hems
 Closed flat hems are calculated using these simplifications:  
 α=Π *[bending angle for hems: always 180° = Π radians]*  
-Rm=Rt=G/2 *[G: default hem gap, in SolidEdge = 0.004 mm]*  
 Tm=Tt *[always choose material thickness from table, omit 3D model thickness]*  
+Rm=Rt=G/2 *[G: default hem gap, in SolidEdge = 0.004 mm, omit 3D model hem gap]*
+
 
 ### PZL Compensation
 - Reducing 3D Model PZL to 0

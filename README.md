@@ -24,17 +24,16 @@ PZL=α×Rn
 ### Derived equations
 σ=2×S+2×F-D=PZL+2×F  
 σ=2×S+2×F-2×F-D=PZL  
-σ=2×S-D=PZL
-D=2×S-PZL  
+σ=2×S-D=PZL ⇒ **D=2×S-PZL**  
 
 S/Re=Tan(α/2) ⇒ S=Re×Tan(α/2)  
-S=Re×Tan(α/2), Re=R+T ⇒ S=(R+T)×Tan(α/2)  
+S=Re×Tan(α/2), Re=R+T ⇒ **S=(R+T)×Tan(α/2)**  
 
-PZL=α×Rn, Rn=R+T×K ⇒ PZL=α×(R+T×K)  
+PZL=α×Rn, Rn=R+T×K ⇒ **PZL=α×(R+T×K)**  
 
 PZL-α×R=α×K×T | /(α×T)  
 K=(PZL-α×R)/(α×T)  
-K=(PZL/α-R)/T
+**K=(PZL/α-R)/T**
 
 ### Hems
 ![image](resources/bending_hems.png)

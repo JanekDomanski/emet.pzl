@@ -28,7 +28,7 @@ D=2×S-PZL
 
 S/Re=Tan(α/2) ⇒ S=Re×Tan(α/2)  
 S=Re×Tan(α/2), Re=R+T ⇒ S=(R+T)×Tan(α/2)  
-Rn=R+T×K, PZL=α×Rn ⇒ PZL=α×(R+T×K)  
+PZL=α×Rn, Rn=R+T×K ⇒ PZL=α×(R+T×K)  
 
 
 PZL-α×R=α×K×T | /(α×T)  

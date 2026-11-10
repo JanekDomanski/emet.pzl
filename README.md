@@ -66,7 +66,4 @@ If we use previously calculated PZLc, then we've got PZLc-independent formula:
 PZLc>0 ⇒ Kfake>-Rm/Tm
 
 ## Disclaimer
-These scripts and tools are provided "AS IS", without any warranty of any kind. Use them at your own risk.
-Always create backups of your files before running any script or tool. The author shall not be held liable for any data loss, file corruption, damage, or other consequences resulting from the use or misuse of the provided software.
-This project is an independent, community-developed project and is not affiliated with, endorsed by, or officially supported by Siemens or Solid Edge.
-Solid Edge is a trademark of Siemens and/or its affiliates.
+This project is an independent project and is not affiliated with, endorsed by, or officially supported by Siemens or Solid Edge. Solid Edge is a trademark of Siemens and/or its affiliates.

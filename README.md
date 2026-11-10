@@ -19,9 +19,9 @@ D: deduction
 K=(Rn-R)/T *[ANSI]*  
 σ=2×S+2×F-D  
 PZL=α×Rn  
-S=Re×Tan(α/2)
 
 ### Derived equations
+S/Re=Tan(α/2) ⇒ S=Re×Tan(α/2)  
 F=0 (hypothetical simplification) ⇒ σ=2×S-D=PZL    
 D=2×S-PZL  
 

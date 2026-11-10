@@ -14,7 +14,7 @@ D: deduction
 …t: variable from bending tables
 
 ### Axioms
-![image](resources/bending.png)
+![image](resources/bending_20261110.png)
 
 K=(Rn-R)/T *[ANSI]*  
 σ=2×S+2×F-D  
@@ -35,6 +35,7 @@ K=(PZL-α×R)/(α×T)
 K=(PZL/α-R)/T
 
 ### Hems
+![image](resources/bending_hems.png)
 Closed flat hems are calculated using these simplifications:  
 α=Π *[bending angle for hems: always 180° = Π radians]*  
 Tm=Tt *[always choose material thickness from table, omit 3D model thickness]*  

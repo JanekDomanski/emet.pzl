@@ -17,8 +17,9 @@ D: deduction
 ![image](resources/bending_202611100817.png)
 
 K=(Rn-R)/T *[ANSI]*  
-σ=2×S+2×F-D  
 PZL=α×Rn  
+σ=2×S+2×F-D  
+σ=PZL+2×F
 
 ### Derived equations
 S/Re=Tan(α/2) ⇒ S=Re×Tan(α/2)  

@@ -22,11 +22,11 @@ PZL=α×Rn
 σ=PZL+2×F
 
 ### Derived equations
-S/Re=Tan(α/2) ⇒ S=Re×Tan(α/2)  
-F=0 (hypothetical simplification) ⇒ σ=2×S-D=PZL    
+σ=2×S+2×F-D=PZL+2×F |-2×F  
+σ=2×S-D=PZL ⇒ F=0 (hypothetical simplification)  
 D=2×S-PZL  
 
-
+S/Re=Tan(α/2) ⇒ S=Re×Tan(α/2)  
 S=Re×Tan(α/2), Re=R+T ⇒ S=(R+T)×Tan(α/2)  
 Rn=R+T×K, PZL=α×Rn ⇒ PZL=α×(R+T×K)  
 

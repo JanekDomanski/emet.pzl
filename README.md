@@ -14,7 +14,7 @@ D: deduction
 …t: variable from bending tables
 
 ### Axioms
-![image](resources/bending_20261110.png)
+![image](resources/bending_202611100817.png)
 
 K=(Rn-R)/T *[ANSI]*  
 σ=2×S+2×F-D  

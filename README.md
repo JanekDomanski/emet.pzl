@@ -9,7 +9,8 @@ Library requires bending table (emet.xlsx) in the same directory.
 
 ## Maths
 ### Variable definitions
-D: deduction  
+BD: bend deduction  
+PZL: Plastic zone length (aka bend allowance)
 …m: variable from 3D model  
 …t: variable from bending tables
 
@@ -18,13 +19,13 @@ D: deduction
 
 K=(Rn-R)/T *[ANSI]*  
 PZL=α×Rn  
-σ=2×S+2×F-D  
+σ=2×S+2×F-BD  
 σ=PZL+2×F
 
 ### Derived equations
-σ=2×S+2×F-D=PZL+2×F  
-σ=2×S+2×F-2×F-D=PZL  
-σ=2×S-D=PZL ⇒ **D=2×S-PZL**  
+σ=2×S+2×F-BD=PZL+2×F  
+2×S+2×F-2×F-BD=PZL  
+2×S-BD=PZL ⇒ **BD=2×S-PZL**  
 
 S/Re=Tan(α/2) ⇒ S=Re×Tan(α/2)  
 S=Re×Tan(α/2), Re=R+T ⇒ **S=(R+T)×Tan(α/2)**  
@@ -49,8 +50,8 @@ Rm=Rt=G/2 *[G: default hem gap, in SolidEdge = 0.004 mm, omit 3D model hem gap]*
 
 Dmopzl: Deduction from 3D model with PZL reduced to 0  
 Dmopzl=2×Sm  
-Dt=2×St-PZLt  
-PZLc=Dmopzl-Dt  
+BDt=2×St-PZLt  
+PZLc=BDmopzl-BDt  
 PZLc=2×Sm-(2×St-PZLt)  
 PZLc=2×Sm-2×St+PZLt  
 PZLc=2×(Rm+Tm)×Tan(α/2)-2×(Rt+Tt)×Tan(α/2)+α×(Rt+Tt×K)

@@ -255,7 +255,8 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 		Console.WriteLine(T("greater_radius_warning"))
 	End If
 
-
+	Console.WriteLine(T("BendTable") & ": " & table & ", " & T("Thickness") & ": " & Math.Round(Tm*1000,3) & " mm" & ", " & T("r") & ": " & Math.Round(Rm*1000,3) & " mm, " & T("angle") & ": " & Math.Round(Angle*180/Math.PI,3) & "°)
+		
 	If(isHem = True) Then
 		Rt = hemGapDefault/2
 		Rm = Rt
@@ -264,8 +265,9 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	End If
 
 	PZL = 2*Math.Tan(Angle/2)*(Rm-Rt+Tm-Tt)+Angle*(Rt+Tt*Kt)
-	Console.WriteLine(T("BendTable") & ": " & table & ", " & T("Thickness") & ": " & Math.Round(Tm*1000,3) & " mm" & ", " & T("r") & ": " & Math.Round(Rm*1000,3) & " mm, " & T("angle") & ": " & Math.Round(Angle*180/Math.PI,3) & "°, PZL: " & Math.Round(PZL*1000,3))
-
+	
+	Console.WriteLine("PZL: " & Math.Round(PZL*1000,3))
+		
 	if(errors > 0) Then
 		PZL = -1
 	End If

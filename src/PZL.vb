@@ -181,10 +181,11 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 		Console.WriteLine("emet.pzl, " & T("script_desc") & ", " & BuildInfo.BuildTime & ", Jan Domański, www.emet.pl")
 		isIntialized = True
 		CurrentBendIterator = 0
-		Errors = 0
-		Warnings = 0
 	End If
 	
+	Errors = 0
+	Warnings = 0
+
 	if(Feature.Name <> "FORCE") Then
 		Feature.Name = "emet.pzl ..."
 	End If
@@ -205,7 +206,6 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 		
 	isHem = False
 
-	
 	table = Config("config")("default bend table")("value")
 	For Each key In Config("materials").Keys
 		If (key = Material)
@@ -234,24 +234,9 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	'hem (pl: zaklepka)
 	if(Math.Abs(Math.PI - Angle) < 0.001) Then
 		isHem = True
-		Rt = hemGapDefault/2
-		Rm = Rt
-		Tm = Tt
-		Kt = Kh
-	End If
-
-	PZL = 2*Math.Tan(Angle/2)*(Rm-Rt+Tm-Tt)+Angle*(Rt+Tt*Kt)
-
-	Console.ForegroundColor = ConsoleColor.Red
-	if(PZL < 0) Then
-		Errors += 1
-		msg = T("wrongpzl")
-		Console.WriteLine(msg)
-		MsgBox(msg)
 	End If
 
 	if (Math.Abs(Tt - Tm) >= thicknessTollerance) Then
-		PZL = -1
 		Errors += 1
 		msg = T("thicknes_not_found")
 		Console.WriteLine(msg)
@@ -259,7 +244,6 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	End If
 
 	if(isHem = True and Rm >= hemGapMax) Then
-		PZL = -1
 		Errors += 1
 		msg = T("big_hem_error")
 		Console.WriteLine(msg)
@@ -271,15 +255,35 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 		Console.WriteLine(T("greater_radius_warning"))
 	End If
 
-	Console.ResetColor()
+
+	If(isHem = True) Then
+		Rt = hemGapDefault/2
+		Rm = Rt
+		Tm = Tt
+		Kt = Kh
+	End If
+
+	PZL = 2*Math.Tan(Angle/2)*(Rm-Rt+Tm-Tt)+Angle*(Rt+Tt*Kt)
 	Console.WriteLine(T("BendTable") & ": " & table & ", " & T("Thickness") & ": " & Math.Round(Tm*1000,3) & " mm" & ", " & T("r") & ": " & Math.Round(Rm*1000,3) & " mm, " & T("angle") & ": " & Math.Round(Angle*180/Math.PI,3) & "°, PZL: " & Math.Round(PZL*1000,3))
 
-	featureStatus = ""
-	msg = ""
-	
-	if(Feature.Name = "FORCE") Then
-		if(PZL < 0) Then PZL = 0
+	if(errors > 0) Then
+		PZL = -1
 	End If
+
+	if(PZL < 0) Then
+		Console.ForegroundColor = ConsoleColor.Red
+		Errors += 1
+		msg = T("wrongpzl")
+		Console.WriteLine(msg)
+		MsgBox(msg)
+		Console.ResetColor()
+		if(Feature.Name = "FORCE") Then
+			PZL = 0
+		End If
+	End If
+
+
+	featureStatus = ""
 	
 	If Errors = 0 Then
 		If Warnings = 0 Then

@@ -71,16 +71,16 @@ Private Shared Function T(ByVal key As String) As String
 End Function
 
 				Private Shared CurrentBendIterator As Integer = 0
-				Private Shared Errors As Integer = 0
-				Private Shared Warnings As Integer = 0
+				Private Shared ErrorsTotal As Integer = 0
+				Private Shared WarningsTotal As Integer = 0
 				Private Shared Config as Dictionary(Of String, Dictionary(Of String, Object))
 				Private Shared isIntialized As Boolean = False
 				
 				Public Sub New()
 						'NOTE: In this example there are no default values to set.
 						CurrentBendIterator = 0
-						Errors = 0
-						Warnings = 0
+						ErrorsTotal = 0
+						WarningsTotal = 0
 						Config = readExcelToDictionary(My.Application.Info.DirectoryPath & "\emet.xlsx")
 						isIntialized = False
 				End Sub
@@ -181,14 +181,16 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 		Console.WriteLine("emet.pzl, " & T("script_desc") & ", " & BuildInfo.BuildTime & ", Jan Domański, www.emet.pl")
 		isIntialized = True
 		CurrentBendIterator = 0
+		ErrorsTotal = 0
+		WarningsTotal = 0
 	End If
 	
-	Errors = 0
-	Warnings = 0
 
 	if(Feature.Name <> "FORCE") Then
 		Feature.Name = "emet.pzl ..."
 	End If
+
+	Dim ErrorsCurrent As Integer = 0
 		
 	Dim thicknessTollerance as Double
 	Dim hemGapMax as Double
@@ -237,21 +239,21 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	End If
 
 	if (Math.Abs(Tt - Tm) >= thicknessTollerance) Then
-		Errors += 1
+		ErrorsCurrent += 1
 		msg = T("thicknes_not_found")
 		Console.WriteLine(msg)
 		MsgBox(msg)
 	End If
 
 	if(isHem = True and Rm >= hemGapMax) Then
-		Errors += 1
+		ErrorsCurrent += 1
 		msg = T("big_hem_error")
 		Console.WriteLine(msg)
 		MsgBox(msg)
 	End If
 
 	if(isHem = False and (Rt-Rm) > radiusTollerance) Then
-		Warnings += 1
+		WarningsTotal += 1
 		Console.WriteLine(T("greater_radius_warning"))
 	End If
 
@@ -268,13 +270,13 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 	
 	Console.WriteLine("PZL: " & Math.Round(PZL*1000,3))
 		
-	if(errors > 0) Then
+	if(ErrorsCurrent > 0) Then
 		PZL = -1
 	End If
 
 	if(PZL < 0) Then
 		Console.ForegroundColor = ConsoleColor.Red
-		Errors += 1
+		ErrorsCurrent += 1
 		msg = T("wrongpzl")
 		Console.WriteLine(msg)
 		MsgBox(msg)
@@ -287,8 +289,10 @@ Public Function PZL(ByRef Feature As Object, ByRef Tm As Double, ByRef Rm As Dou
 
 	featureStatus = ""
 	
-	If Errors = 0 Then
-		If Warnings = 0 Then
+	ErrorsTotal=ErrorsTotal+ErrorsCurrent
+	
+	If ErrorsTotal = 0 Then
+		If WarningsTotal = 0 Then
 			featureStatus = "OK"
 		Else
 			featureStatus = T("status_warnings_feature_suffix")

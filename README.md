@@ -65,7 +65,7 @@ K=(PZL/α-R)/T
 Kfake=(PZLc/α-Rm)/Tm  
 If we use previously calculated PZLc, then we've got PZLc-independent formula:  
 **Kfake=(2×Tan(α/2)/α×(Rm-Rt+Tm-Tt)+Tt×Kt-Rm+Rt)/Tm**  
-PZLc≥0 ⇒ Kfake≥-Rm/Tm
+PZLc≥0 ⇒ Kfake≥(0/α-Rm)/Tm ⇒ Kfake≥-Rm/Tm
 
 ## Disclaimer
 This project is an independent project and is not affiliated with, endorsed by, or officially supported by Siemens or Solid Edge. Solid Edge is a trademark of Siemens and/or its affiliates.

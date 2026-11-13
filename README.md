@@ -11,8 +11,8 @@ Library requires bending table (emet.xlsx) in the same directory.
 ### Variable definitions
 BD: bend deduction  
 PZL: Plastic zone length (aka bend allowance)  
-…m: variable from 3D model  
-…t: variable from bending tables
+…m: value from 3D model  
+…t: value from bending table
 
 ### Axioms
 ![image](resources/bending_202611100817.png)

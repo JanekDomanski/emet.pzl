@@ -22,6 +22,9 @@ PZL=α×Rn
 σ=2×S+2×F-BD  
 σ=PZL+2×F
 
+Rm≠Rt∨Rm=Rt  
+Tm≠Tt∨Tm=Tt
+
 ### Derived equations
 σ=2×S+2×F-BD=PZL+2×F  
 2×S+2×F-2×F-BD=PZL  

@@ -67,7 +67,8 @@ When this factor is used in the standard bend-development formula we've got good
 K=(PZL/α-R)/T  
 Kfake=(PZLc/α-Rm)/Tm  
 If we use previously calculated PZLc, then we've got PZLc-independent formula:  
-**Kfake=(2×Tan(α/2)/α×(Rm-Rt+Tm-Tt)+Tt×Kt-Rm+Rt)/Tm**  
+Kfake=((2×Tan(α/2)(Rm-Rt+Tm-Tt)+α×(Rt+Tt×Kt))/α-Rm)/Tm   
+**Kfake=(2×Tan(α/2)/α×(Rm-Rt+Tm-Tt)+Rt+Tt×Kt-Rm)/Tm**  
 PZLc≥0 ⇒ Kfake≥(0/α-Rm)/Tm ⇒ Kfake≥-Rm/Tm
 
 ## Disclaimer

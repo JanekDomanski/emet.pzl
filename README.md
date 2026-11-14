@@ -34,7 +34,7 @@ S/Re=Tan(α/2) ⇒ S=Re×Tan(α/2)
 S=Re×Tan(α/2), Re=R+T ⇒ **S=(R+T)×Tan(α/2)**  
 
 PZL=α×Rn, Rn=R+T×K ⇒ **PZL=α×(R+T×K)**  
-
+PZL=α×R+α×K×T  
 PZL-α×R=α×K×T | /(α×T)  
 K=(PZL-α×R)/(α×T)  
 **K=(PZL/α-R)/T**

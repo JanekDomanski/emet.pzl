@@ -57,9 +57,12 @@ BDt=2×St-PZLt
 PZLc=BDmopzl-BDt  
 PZLc=2×Sm-(2×St-PZLt)  
 PZLc=2×Sm-2×St+PZLt  
-PZLc=2×(Rm+Tm)×Tan(α/2)-2×(Rt+Tt)×Tan(α/2)+α×(Rt+Tt×K)
-
-**PZLc=2×Tan(α/2)×(Rm-Rt+Tm-Tt)+α×(Rt+Tt×K)**
+PZLc=2×(Rm+Tm)×Tan(α/2)-2×(Rt+Tt)×Tan(α/2)+α×(Rt+Tt×K)  
+PZLc=2×Tan(α/2)×(Rm+Tm)-2×Tan(α/2)×(Rt+Tt)+α×(Rt+Tt×K)  
+PZLc=2×Tan(α/2)×(Rm+Tm)+2×Tan(α/2)×(-1×(Rt+Tt)+α×(Rt+Tt×K))  
+PZLc=2×Tan(α/2)×(Rm+Tm)+2×Tan(α/2)×(-Rt-Tt+α×(Rt+Tt×K))  
+**PZLc=2×Tan(α/2)×(Rm+Tm-Rt-Tt)+α×(Rt+Tt×K)**  
+PZLc>0  *because negative PZLc causes flat zones overlapping*
 
 ### Fake K-factor
 When this factor is used in the standard bend-development formula we've got good flat pattern even if 3D Model thickness or 3D model radii differs from bending tables. K-factor results from compensated PZL which can be 0. So fake K-factor can be outside reasonable range (0,1>  

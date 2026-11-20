@@ -51,8 +51,8 @@ Rm=Rt=G/2 *[G: default hem gap, in SolidEdge = 0.004 mm, omit 3D model hem gap]*
 - Reducing 3D Model PZL to 0
 - Calculating PZL that compensates radius difference (PZLc)
 
-Dmopzl: Deduction from 3D model with PZL reduced to 0  
-Dmopzl=2×Sm  
+BDmopzl: Deduction from 3D model with PZL reduced to 0  
+BDmopzl=2×Sm  
 BDt=2×St-PZLt  
 PZLc=BDmopzl-BDt  
 PZLc=2×Sm-(2×St-PZLt)  

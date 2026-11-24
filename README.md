@@ -59,7 +59,7 @@ PZLc=2×Sm-(2×St-PZLt)
 PZLc=2×Sm-2×St+PZLt  
 PZLc=2×(Rm+Tm)×Tan(α/2)-2×(Rt+Tt)×Tan(α/2)+α×(Rt+Tt×K)  
 PZLc=2×Tan(α/2)×(Rm+Tm)-2×Tan(α/2)×(Rt+Tt)+α×(Rt+Tt×K)  
-PZLc=2×Tan(α/2)×(Rm+Tm)+2×Tan(α/2)×(-1×(Rt+Tt))+α×(Rt+Tt×K)
+PZLc=2×Tan(α/2)×(Rm+Tm)+2×Tan(α/2)×(-1×(Rt+Tt))+α×(Rt+Tt×K)  
 PZLc=2×Tan(α/2)×(Rm+Tm)+2×Tan(α/2)×(-Rt-Tt)+α×(Rt+Tt×K)
 
 **PZLc=2×Tan(α/2)×(Rm+Tm-Rt-Tt)+α×(Rt+Tt×K)**  

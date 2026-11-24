@@ -73,7 +73,7 @@ Kfake=(PZLc/α-Rm)/Tm
 If we use previously calculated PZLc, then we've got PZLc-independent formula:  
 Kfake=((2×Tan(α/2)×(Rm+Tm-Rt-Tt)+α×(Rt+Tt×Kt))/α-Rm)/Tm
 
-**Kfake=(2×Tan(α/2)/α×(Rm+Tm-Rt-Tt)+Rt+Tt×Kt-Rm)/Tm**  
+**Kfake=(2×Tan(α/2)×(Rm+Tm-Rt-Tt)/α+Rt+Tt×Kt-Rm)/Tm**  
 PZLc≥0 ⇒ Kfake≥(0/α-Rm)/Tm ⇒ **Kfake≥-Rm/Tm**
 
 ## Disclaimer

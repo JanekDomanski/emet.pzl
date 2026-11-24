@@ -61,6 +61,7 @@ PZLc=2×(Rm+Tm)×Tan(α/2)-2×(Rt+Tt)×Tan(α/2)+α×(Rt+Tt×K)
 PZLc=2×Tan(α/2)×(Rm+Tm)-2×Tan(α/2)×(Rt+Tt)+α×(Rt+Tt×K)  
 PZLc=2×Tan(α/2)×(Rm+Tm)+2×Tan(α/2)×(-1×(Rt+Tt)+α×(Rt+Tt×K))  
 PZLc=2×Tan(α/2)×(Rm+Tm)+2×Tan(α/2)×(-Rt-Tt+α×(Rt+Tt×K))  
+
 **PZLc=2×Tan(α/2)×(Rm+Tm-Rt-Tt)+α×(Rt+Tt×K)**  
 PZLc>0  *because negative PZLc causes flat zones overlapping*
 
@@ -71,8 +72,9 @@ K=(PZL/α-R)/T
 Kfake=(PZLc/α-Rm)/Tm  
 If we use previously calculated PZLc, then we've got PZLc-independent formula:  
 Kfake=((2×Tan(α/2)(Rm-Rt+Tm-Tt)+α×(Rt+Tt×Kt))/α-Rm)/Tm   
+
 **Kfake=(2×Tan(α/2)/α×(Rm-Rt+Tm-Tt)+Rt+Tt×Kt-Rm)/Tm**  
-PZLc≥0 ⇒ Kfake≥(0/α-Rm)/Tm ⇒ Kfake≥-Rm/Tm
+PZLc≥0 ⇒ Kfake≥(0/α-Rm)/Tm ⇒ **Kfake≥-Rm/Tm**
 
 ## Disclaimer
 This project is an independent project and is not affiliated with, endorsed by, or officially supported by Siemens or Solid Edge. Solid Edge is a trademark of Siemens and/or its affiliates.
